@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use 'colors' as *;
+
+@function clr($color, $shade){
+    $requested-color: map.get($colors, $color, $shade);
+    @if $requested-color {
+        @return $requested-color;
+    } @else {
+        @error 'The $colors -map does not contain that color!'
+    }
+};
