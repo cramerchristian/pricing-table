@@ -2,7 +2,7 @@
 
 @each $size-name, $size-value in $sizes {
     .margin {
-        &-#{size-name} {
+        &-#{$size-name} {
             margin: $size-value;
         }
         &-block-start-#{$size-name} {
@@ -25,7 +25,7 @@
         }
     }
     .padding {
-        &-#{size-name} {
+        &-#{$size-name} {
             padding: $size-value;
         }
         &-block-start-#{$size-name} {

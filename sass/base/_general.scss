@@ -1,3 +1,11 @@
+@use '../abstracts/' as *;
+@use '../utilities' as *;
+
 body {
-    background-color: pink;
-}
+    font-size: getFontSize(400);
+    font-weight: getFontWeight(400);
+    font-family: getFontFamily();
+    color: clr(neutral, 900);
+    background-color: clr(neutral, 100);
+    text-align: center;
+  }

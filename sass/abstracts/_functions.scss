@@ -1,5 +1,7 @@
 @use 'sass:map';
 @use 'colors' as *;
+@use 'typography' as *;
+@use 'sizes' as *;
 
 @function clr($color, $shade){
     $requested-color: map.get($colors, $color, $shade);
@@ -9,3 +11,29 @@
         @error 'The $colors -map does not contain that color!'
     }
 };
+
+@function getFontFamily() {
+    @return $ff-sans;
+}
+
+@function getFontSize($fs) {
+    @return map.get($font-sizes, $fs);
+}
+
+@function getFontWeight($fw) {
+    @if $fw == 400 {
+        @return $fw-400;
+    } @else if $fw == 700 {
+        @return $fw-700;
+    } @else {
+        @error 'no font-weight with #{$fw} value found';
+    }
+}
+
+@function size($size) {
+    @if map.has-key($sizes, $size) {
+      @return map.get($sizes, $size);
+    } @else {
+      @error '$sizes does not have that size!';
+    }
+  }

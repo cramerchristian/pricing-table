@@ -1,0 +1,43 @@
+@use '../abstracts/' as *;
+
+.pricing-plans {
+    border: size(8) solid clr(primary, 400);
+    display: flex;
+  }
+  
+.tier {
+  $parent: &;
+  flex: 1;
+  display: grid;
+  gap: size(20);
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: getFontWeight(700);
+    color: clr(primary, 400);
+  }
+
+  &[data-type= inverted] {
+    background-color: clr(primary, 400);
+    color: clr(neutral, 100);
+
+    #{$parent}__title {
+      color: inherit;
+    }
+  }
+
+  &__feature-list {
+    list-style: none;
+  }
+
+  &__list-item {
+    &:not(:last-child)::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin-block: size(20);
+      background-color: clr(neutral, 900);
+      opacity: 0.2;
+    }
+  }
+}
